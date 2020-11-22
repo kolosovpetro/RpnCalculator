@@ -22,6 +22,7 @@ namespace RpnCalculator.PostfixEvaluator.Implementations
         public static double EvaluatePostfix(Queue<char> postfix)
         {
             var evaluatorStack = new Stack<double>();
+            
             while (postfix.Any())
             {
                 var current = postfix.Dequeue();
@@ -58,7 +59,7 @@ namespace RpnCalculator.PostfixEvaluator.Implementations
 
                 var val1 = evaluatorStack.Pop();
                 var val2 = evaluatorStack.Pop();
-                var output = Evaluate(val1, val2, current);
+                var output = Evaluate(val2, val1, current);
                 evaluatorStack.Push(output);
             }
 

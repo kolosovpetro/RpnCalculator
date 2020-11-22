@@ -18,7 +18,7 @@ namespace RpnCalculator.ShuntingYard.Implementation
                     outputQueue.Enqueue(token);
                     continue;
                 }
-                
+
                 switch (token)
                 {
                     case '(':
@@ -26,14 +26,14 @@ namespace RpnCalculator.ShuntingYard.Implementation
                         continue;
                     case ')':
                     {
-                        while (operandStack.Peek() != '(') 
+                        while (operandStack.Peek() != '(')
                             outputQueue.Enqueue(operandStack.Pop());
                         operandStack.Pop();
                         continue;
                     }
                 }
 
-                while (operandStack.Any() 
+                while (operandStack.Count > 0
                        && Operator.Precedence(operandStack.Peek()) >= Operator.Precedence(token)
                        && Operator.Associativity(token) == "Left")
                 {
@@ -43,7 +43,7 @@ namespace RpnCalculator.ShuntingYard.Implementation
                 operandStack.Push(token);
             }
 
-            while (operandStack.Any()) 
+            while (operandStack.Any())
                 outputQueue.Enqueue(operandStack.Pop());
             return outputQueue;
         }
@@ -53,7 +53,7 @@ namespace RpnCalculator.ShuntingYard.Implementation
             var queue = ShuntingYard(infix);
             var builder = new StringBuilder();
 
-            while (queue.Any()) 
+            while (queue.Any())
                 builder.Append(queue.Dequeue());
 
             return builder.ToString();

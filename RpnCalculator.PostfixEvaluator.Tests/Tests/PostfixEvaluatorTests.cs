@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using System;
+using FluentAssertions;
 using NUnit.Framework;
 using RpnCalculator.PostfixEvaluator.Implementations;
 using RpnCalculator.ShuntingYard.Implementation;
@@ -27,6 +28,10 @@ namespace RpnCalculator.PostfixEvaluator.Tests.Tests
             postfixString = ShuntingYardAlgorithm.InfixToPostfix("3*(4+5)");
             value = Evaluator.EvaluatePostfix(postfixString);
             value.Should().Be(27);
+            
+            postfixString = ShuntingYardAlgorithm.InfixToPostfix("3+4*2/(1-5)^2^3");
+            value = Evaluator.EvaluatePostfix(postfixString);
+            value.Should().Be(3.0001220703125);
         }
 
         [Test]
