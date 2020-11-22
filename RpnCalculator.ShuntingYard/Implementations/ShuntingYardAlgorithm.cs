@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Text;
 
-namespace RpnCalculator.ShuntingYard.Implementation
+namespace RpnCalculator.ShuntingYard.Implementations
 {
     public static class ShuntingYardAlgorithm
     {
@@ -45,6 +45,7 @@ namespace RpnCalculator.ShuntingYard.Implementation
 
             while (operandStack.Any())
                 outputQueue.Enqueue(operandStack.Pop());
+            
             return outputQueue;
         }
 

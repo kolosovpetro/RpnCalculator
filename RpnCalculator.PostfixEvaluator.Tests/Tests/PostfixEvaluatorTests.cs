@@ -1,8 +1,7 @@
-﻿using System;
-using FluentAssertions;
+﻿using FluentAssertions;
 using NUnit.Framework;
 using RpnCalculator.PostfixEvaluator.Implementations;
-using RpnCalculator.ShuntingYard.Implementation;
+using RpnCalculator.ShuntingYard.Implementations;
 
 namespace RpnCalculator.PostfixEvaluator.Tests.Tests
 {

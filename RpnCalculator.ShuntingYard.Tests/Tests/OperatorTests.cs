@@ -1,7 +1,7 @@
 ﻿using System;
 using FluentAssertions;
 using NUnit.Framework;
-using RpnCalculator.ShuntingYard.Implementation;
+using RpnCalculator.ShuntingYard.Implementations;
 
 namespace RpnCalculator.ShuntingYard.Tests.Tests
 {

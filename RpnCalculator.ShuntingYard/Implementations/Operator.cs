@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace RpnCalculator.ShuntingYard.Implementation
+namespace RpnCalculator.ShuntingYard.Implementations
 {
     public static class Operator
     {

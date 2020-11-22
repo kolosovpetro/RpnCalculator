@@ -69,10 +69,7 @@ namespace RpnCalculator.PostfixEvaluator.Implementations
         private static Queue<char> StringToQueue(string str)
         {
             var queue = new Queue<char>();
-
-            foreach (var c in str) 
-                queue.Enqueue(c);
-
+            foreach (var c in str) queue.Enqueue(c);
             return queue;
         }
     }
