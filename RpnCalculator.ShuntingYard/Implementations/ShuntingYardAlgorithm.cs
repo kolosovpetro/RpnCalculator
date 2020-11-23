@@ -6,14 +6,15 @@ namespace RpnCalculator.ShuntingYard.Implementations
 {
     public static class ShuntingYardAlgorithm
     {
-        public static Queue<char> ShuntingYard(string input)
+        public static Queue<string> ShuntingYard(string input)
         {
-            var outputQueue = new Queue<char>();
-            var operandStack = new Stack<char>();
+            var outputQueue = new Queue<string>();
+            var operandStack = new Stack<string>();
+            var split = input.Split(' ');
 
-            foreach (var token in input)
+            foreach (var token in split)
             {
-                if (char.IsDigit(token))
+                if (double.TryParse(token, out _))
                 {
                     outputQueue.Enqueue(token);
                     continue;
@@ -21,12 +22,12 @@ namespace RpnCalculator.ShuntingYard.Implementations
 
                 switch (token)
                 {
-                    case '(':
+                    case "(":
                         operandStack.Push(token);
                         continue;
-                    case ')':
+                    case ")":
                     {
-                        while (operandStack.Peek() != '(')
+                        while (operandStack.Peek() != "(")
                             outputQueue.Enqueue(operandStack.Pop());
                         operandStack.Pop();
                         continue;
@@ -55,7 +56,7 @@ namespace RpnCalculator.ShuntingYard.Implementations
             var builder = new StringBuilder();
 
             while (queue.Any())
-                builder.Append(queue.Dequeue());
+                builder.Append(queue.Dequeue() + " ");
 
             return builder.ToString();
         }
