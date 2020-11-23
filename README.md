@@ -3,13 +3,21 @@
 Reverse Polish Notation Calculator. Evaluates infix expressions.
 
 ```cs
-var postfixString = ShuntingYardAlgorithm.InfixToPostfix("3+4*2/(1-5)^2^3");
-Console.WriteLine(postfixString); // 342*15-23^^/+
-var value = Evaluator.EvaluatePostfix(postfixString);
+var shuntingYardQueue = ShuntingYardAlgorithm.ShuntingYard("3 + 4 * 2 / ( 1 - 5 ) ^ 2 ^ 3");
+var postfixExpression = ShuntingYardAlgorithm.InfixToPostfix("3 + 4 * 2 / ( 1 - 5 ) ^ 2 ^ 3");
+Console.WriteLine(postfixExpression); // 3 4 2 * 1 5 - 2 3 ^ ^ / +
+var value = Evaluator.EvaluatePostfix(shuntingYardQueue);
 Console.WriteLine(value); // 3,0001220703125
 
-postfixString = ShuntingYardAlgorithm.InfixToPostfix("3+4^(1/2)");
-Console.WriteLine(postfixString); // 3412/^+
-value = Evaluator.EvaluatePostfix(postfixString);
+shuntingYardQueue = ShuntingYardAlgorithm.ShuntingYard("3 + 4 ^ ( 1 / 2 )");
+postfixExpression = ShuntingYardAlgorithm.InfixToPostfix("3 + 4 ^ ( 1 / 2 )");
+Console.WriteLine(postfixExpression); // 3 4 1 2 / ^ +
+value = Evaluator.EvaluatePostfix(shuntingYardQueue);
 Console.WriteLine(value); // 5
+
+shuntingYardQueue = ShuntingYardAlgorithm.ShuntingYard("10 * ( 10 + 1 ) ^ 2");
+postfixExpression = ShuntingYardAlgorithm.InfixToPostfix("10 * ( 10 + 1 ) ^ 2");
+Console.WriteLine(postfixExpression); // 10 10 1 + 2 ^ *
+value = Evaluator.EvaluatePostfix(shuntingYardQueue);
+Console.WriteLine(value); // 1210
 ```
