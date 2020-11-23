@@ -41,42 +41,5 @@ namespace RpnCalculator.PostfixEvaluator.Implementations
 
             return evaluatorStack.Pop();
         }
-
-        public static double EvaluatePostfix(string str)
-        {
-            var evaluatorStack = new Stack<double>();
-            var split = str.Split(' ');
-            var postfixQueue = ArrayToQueue(split);
-
-            while (postfixQueue.Any())
-            {
-                var current = postfixQueue.Dequeue();
-
-                if (double.TryParse(current, out var number))
-                {
-                    evaluatorStack.Push(number);
-                    continue;
-                }
-
-                var val1 = evaluatorStack.Pop();
-                var val2 = evaluatorStack.Pop();
-                var output = Evaluate(val2, val1, current);
-                evaluatorStack.Push(output);
-            }
-
-            return evaluatorStack.Pop();
-        }
-
-        public static Queue<string> ArrayToQueue(IEnumerable<string> arr)
-        {
-            var queue = new Queue<string>();
-
-            foreach (var str in arr)
-            {
-                queue.Enqueue(str);
-            }
-
-            return queue;
-        }
     }
 }

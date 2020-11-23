@@ -24,6 +24,15 @@ namespace RpnCalculator.PostfixEvaluator.Tests.Tests
             
             queue = ShuntingYardAlgorithm.ShuntingYard("10 ^ 2");
             Evaluator.EvaluatePostfix(queue).Should().Be(100);
+            
+            queue = ShuntingYardAlgorithm.ShuntingYard("10 + 10 ^ 2");
+            Evaluator.EvaluatePostfix(queue).Should().Be(110);
+            
+            queue = ShuntingYardAlgorithm.ShuntingYard("10 + ( 10 + 1 ) ^ 2");
+            Evaluator.EvaluatePostfix(queue).Should().Be(131);
+            
+            queue = ShuntingYardAlgorithm.ShuntingYard("10 * ( 10 + 1 ) ^ 2");
+            Evaluator.EvaluatePostfix(queue).Should().Be(1210);
         }
     }
 }
