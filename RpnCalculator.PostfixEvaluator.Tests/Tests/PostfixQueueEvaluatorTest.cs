@@ -21,6 +21,9 @@ namespace RpnCalculator.PostfixEvaluator.Tests.Tests
             
             queue = ShuntingYardAlgorithm.ShuntingYard("20 + 30");
             Evaluator.EvaluatePostfix(queue).Should().Be(50);
+            
+            queue = ShuntingYardAlgorithm.ShuntingYard("10 ^ 2");
+            Evaluator.EvaluatePostfix(queue).Should().Be(100);
         }
     }
 }
