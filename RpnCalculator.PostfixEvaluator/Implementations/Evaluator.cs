@@ -45,11 +45,12 @@ namespace RpnCalculator.PostfixEvaluator.Implementations
         public static double EvaluatePostfix(string str)
         {
             var evaluatorStack = new Stack<double>();
-            var postfix = StringToQueue(str);
+            var split = str.Split(' ');
+            var postfixQueue = ArrayToQueue(split);
 
-            while (postfix.Any())
+            while (postfixQueue.Any())
             {
-                var current = postfix.Dequeue();
+                var current = postfixQueue.Dequeue();
 
                 if (double.TryParse(current, out var number))
                 {
@@ -66,16 +67,13 @@ namespace RpnCalculator.PostfixEvaluator.Implementations
             return evaluatorStack.Pop();
         }
 
-        private static Queue<string> StringToQueue(string str)
+        public static Queue<string> ArrayToQueue(IEnumerable<string> arr)
         {
             var queue = new Queue<string>();
-            
-            foreach (var c in str)
-            {
-                if (char.IsWhiteSpace(c))
-                    continue;
 
-                queue.Enqueue(c.ToString());
+            foreach (var str in arr)
+            {
+                queue.Enqueue(str);
             }
 
             return queue;
