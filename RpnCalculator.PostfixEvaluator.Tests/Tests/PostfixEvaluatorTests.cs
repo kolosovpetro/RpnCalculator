@@ -31,6 +31,10 @@ namespace RpnCalculator.PostfixEvaluator.Tests.Tests
             postfixString = ShuntingYardAlgorithm.InfixToPostfix("3 + 4 * 2 / ( 1 - 5 ) ^ 2 ^ 3");
             value = Evaluator.EvaluatePostfix(postfixString);
             value.Should().Be(3.0001220703125);
+
+            postfixString = ShuntingYardAlgorithm.InfixToPostfix("20 + 10 ^ 2");
+            value = Evaluator.EvaluatePostfix(postfixString);
+            value.Should().Be(120);
         }
 
         [Test]
