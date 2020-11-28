@@ -5,4 +5,8 @@
         <RootNamespace>RpnCalculator.ShuntingYard</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\RpnCalculator.Operator\RpnCalculator.Operator.csproj" />
+    </ItemGroup>
+
 </Project>

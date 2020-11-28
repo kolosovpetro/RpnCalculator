@@ -1,8 +1,8 @@
 ﻿using FluentAssertions;
 using NUnit.Framework;
-using RpnCalculator.ShuntingYard.Implementations;
+using RpnCalculator.Operator.Files;
 
-namespace RpnCalculator.ShuntingYard.Tests.Tests
+namespace RpnCalculator.Operator.Tests.Tests
 {
     [TestFixture]
     public class OperatorTests

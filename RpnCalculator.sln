@@ -10,6 +10,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RpnCalculator.ShuntingYard.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RpnCalculator.UI", "RpnCalculator.UI\RpnCalculator.UI.csproj", "{24DD99B5-CBD3-4215-8C20-C91748D86ADE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RpnCalculator.Operator", "RpnCalculator.Operator\RpnCalculator.Operator.csproj", "{D5A10377-5830-408F-A57C-44A549BFE150}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RpnCalculator.Operator.Tests", "RpnCalculator.Operator.Tests\RpnCalculator.Operator.Tests.csproj", "{0A7DB190-5C59-4150-8302-03C536368ACF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +40,13 @@ Global
 		{24DD99B5-CBD3-4215-8C20-C91748D86ADE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24DD99B5-CBD3-4215-8C20-C91748D86ADE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24DD99B5-CBD3-4215-8C20-C91748D86ADE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5A10377-5830-408F-A57C-44A549BFE150}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5A10377-5830-408F-A57C-44A549BFE150}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5A10377-5830-408F-A57C-44A549BFE150}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5A10377-5830-408F-A57C-44A549BFE150}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A7DB190-5C59-4150-8302-03C536368ACF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A7DB190-5C59-4150-8302-03C536368ACF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A7DB190-5C59-4150-8302-03C536368ACF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A7DB190-5C59-4150-8302-03C536368ACF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

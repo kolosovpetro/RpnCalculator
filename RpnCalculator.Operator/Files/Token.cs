@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace RpnCalculator.ShuntingYard.Implementations
+namespace RpnCalculator.Operator.Files
 {
     public static class Token
     {
