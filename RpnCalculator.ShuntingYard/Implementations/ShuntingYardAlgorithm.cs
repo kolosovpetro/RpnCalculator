@@ -10,9 +10,9 @@ namespace RpnCalculator.ShuntingYard.Implementations
         {
             var outputQueue = new Queue<string>();
             var operandStack = new Stack<string>();
-            var split = input.Split(' ');
+            var inputArray = input.Split(' ');
 
-            foreach (var token in split)
+            foreach (var token in inputArray)
             {
                 if (double.TryParse(token, out _))
                 {
@@ -35,8 +35,8 @@ namespace RpnCalculator.ShuntingYard.Implementations
                 }
 
                 while (operandStack.Count > 0
-                       && Operator.Precedence(operandStack.Peek()) >= Operator.Precedence(token)
-                       && Operator.Associativity(token) == "Left")
+                       && Token.Precedence(operandStack.Peek()) >= Token.Precedence(token)
+                       && Token.Associativity(token) == "Left")
                 {
                     outputQueue.Enqueue(operandStack.Pop());
                 }
