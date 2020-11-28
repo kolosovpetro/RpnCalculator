@@ -36,7 +36,7 @@ namespace RpnCalculator.PostfixEvaluator.Implementations
             };
         }
 
-        private static double Evaluate(string token)
+        public static double Evaluate(string token)
         {
             return token switch
             {
@@ -57,13 +57,6 @@ namespace RpnCalculator.PostfixEvaluator.Implementations
                 if (Token.IsNumber(currentToken))
                 {
                     resultStack.Push(double.Parse(currentToken));
-                    continue;
-                }
-
-                if (Token.IsConstant(currentToken))
-                {
-                    var value = Evaluate(currentToken);
-                    resultStack.Push(value);
                     continue;
                 }
 

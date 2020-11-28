@@ -58,4 +58,18 @@ postfixExpression = ShuntingYardAlgorithm.InfixToPostfix(infixString);
 Console.WriteLine(postfixExpression); // 2 e ^ 1 +
 value = Evaluator.EvaluatePostfix(shuntingYardQueue);
 Console.WriteLine(value); // 7,5808859910179205
+
+infixString = "sqrt ( e ^ pi )";
+shuntingYardQueue = ShuntingYardAlgorithm.ShuntingYard(infixString);
+postfixExpression = ShuntingYardAlgorithm.InfixToPostfix(infixString);
+Console.WriteLine(postfixExpression); // 2,718281828459045 3,141592653589793 ^ sqrt
+value = Evaluator.EvaluatePostfix(shuntingYardQueue);
+Console.WriteLine(value); // 4,810477380965351
+            
+infixString = "sin ( pi / 4 )";
+shuntingYardQueue = ShuntingYardAlgorithm.ShuntingYard(infixString);
+postfixExpression = ShuntingYardAlgorithm.InfixToPostfix(infixString);
+Console.WriteLine(postfixExpression); // 3,141592653589793 4 / sin
+value = Evaluator.EvaluatePostfix(shuntingYardQueue);
+Console.WriteLine(value); // 0,7071067811865476
 ```

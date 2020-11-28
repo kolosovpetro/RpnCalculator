@@ -55,8 +55,14 @@ namespace RpnCalculator.PostfixEvaluator.Tests.Tests
             queue = ShuntingYardAlgorithm.ShuntingYard("( 2 ^ pi ) + 1");
             Evaluator.EvaluatePostfix(queue).Should().Be(9.824977827076287);
             
-            queue = ShuntingYardAlgorithm.ShuntingYard("sin ( ( pi ) / 2 )");
+            queue = ShuntingYardAlgorithm.ShuntingYard("sin ( pi / 2 )");
             Evaluator.EvaluatePostfix(queue).Should().Be(1);
+            
+            queue = ShuntingYardAlgorithm.ShuntingYard("sqrt ( e ^ pi )");
+            Evaluator.EvaluatePostfix(queue).Should().Be(4.810477380965351);
+            
+            queue = ShuntingYardAlgorithm.ShuntingYard("sin ( pi / 4 )");
+            Evaluator.EvaluatePostfix(queue).Should().Be(0.7071067811865476);
         }
     }
 }

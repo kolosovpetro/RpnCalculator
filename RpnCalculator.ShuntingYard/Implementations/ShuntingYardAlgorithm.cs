@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using RpnCalculator.Operator.Files;
+using RpnCalculator.PostfixEvaluator.Implementations;
 
 namespace RpnCalculator.ShuntingYard.Implementations
 {
@@ -21,7 +23,13 @@ namespace RpnCalculator.ShuntingYard.Implementations
                     continue;
                 }
 
-                if (Token.IsLeftParenthesis(token) || Token.IsFunction(token) || Token.IsConstant(token))
+                if (Token.IsConstant(token))
+                {
+                    outputQueue.Enqueue(Evaluator.Evaluate(token).ToString(CultureInfo.CurrentCulture));
+                    continue;
+                }
+
+                if (Token.IsLeftParenthesis(token) || Token.IsFunction(token))
                 {
                     operandStack.Push(token);
                     continue;
