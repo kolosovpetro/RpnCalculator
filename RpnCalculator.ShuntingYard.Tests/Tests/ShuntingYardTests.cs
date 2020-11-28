@@ -33,6 +33,15 @@ namespace RpnCalculator.ShuntingYard.Tests.Tests
             
             postfix = ShuntingYardAlgorithm.InfixToPostfix("2 + tan ( 1 / 2 ) + cos ( 0 )");
             postfix.Should().Be("2 1 2 / tan + 0 cos + ");
+            
+            postfix = ShuntingYardAlgorithm.InfixToPostfix("2 + ( tan ( 1 / 2 ) ) ^ 2 + cos ( 0 )");
+            postfix.Should().Be("2 1 2 / tan 2 ^ + 0 cos + ");
+            
+            postfix = ShuntingYardAlgorithm.InfixToPostfix("2 + ln ( tan ( 1 / 2 ) ) + cos ( 0 )");
+            postfix.Should().Be("2 1 2 / tan ln + 0 cos + ");
+            
+            postfix = ShuntingYardAlgorithm.InfixToPostfix("ln ( exp ( 2 ) )");
+            postfix.Should().Be("2 exp ln ");
         }
     }
 }

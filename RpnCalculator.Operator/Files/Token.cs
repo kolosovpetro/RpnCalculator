@@ -5,7 +5,8 @@ namespace RpnCalculator.Operator.Files
     public static class Token
     {
         private static readonly string[] Operators = {"^", "*", "/", "+", "-"};
-        private static readonly string[] Functions = {"sin", "cos", "tan", "ctan"};
+        private static readonly string[] Functions = {"sin", "cos", "tan", "ctan", "sqrt", "exp", "ln", "log"};
+        private static readonly string[] Constants = {"e", "pi"};
 
         public static int Precedence(string token)
         {
@@ -16,6 +17,10 @@ namespace RpnCalculator.Operator.Files
                 "cos" => 4,
                 "tan" => 4,
                 "ctan" => 4,
+                "sqrt" => 4,
+                "exp" => 4,
+                "ln" => 4,
+                "log" => 4,
                 "*" => 3,
                 "/" => 3,
                 "+" => 2,
@@ -54,9 +59,19 @@ namespace RpnCalculator.Operator.Files
             return token == ")";
         }
 
-        public static bool IsLeftAssociative(string token)
+        public static bool IsLeftAssociated(string token)
         {
             return Associativity(token) == "Left";
+        }
+
+        public static bool IsGreaterPrecedence(string token1, string token2)
+        {
+            return Precedence(token1) >= Precedence(token2);
+        }
+
+        public static bool IsConstant(string token)
+        {
+            return Constants.Contains(token);
         }
     }
 }

@@ -21,7 +21,7 @@ namespace RpnCalculator.ShuntingYard.Implementations
                     continue;
                 }
 
-                if (Token.IsLeftParenthesis(token) || Token.IsFunction(token))
+                if (Token.IsLeftParenthesis(token) || Token.IsFunction(token) || Token.IsConstant(token))
                 {
                     operandStack.Push(token);
                     continue;
@@ -38,9 +38,8 @@ namespace RpnCalculator.ShuntingYard.Implementations
                     continue;
                 }
 
-                while (operandStack.Count > 0
-                       && Token.Precedence(operandStack.Peek()) >= Token.Precedence(token)
-                       && Token.IsLeftAssociative(token))
+                while (operandStack.Any() && Token.IsGreaterPrecedence(operandStack.Peek(), token)
+                                          && Token.IsLeftAssociated(token))
                 {
                     outputQueue.Enqueue(operandStack.Pop());
                 }
