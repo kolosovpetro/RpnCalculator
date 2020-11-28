@@ -14,29 +14,32 @@ namespace RpnCalculator.ShuntingYard.Implementations
 
             foreach (var token in inputArray)
             {
-                if (double.TryParse(token, out _))
+                if (Token.IsNumber(token))
                 {
                     outputQueue.Enqueue(token);
                     continue;
                 }
 
-                switch (token)
+                if (Token.IsLeftParenthesis(token) || Token.IsFunction(token))
                 {
-                    case "(":
-                        operandStack.Push(token);
-                        continue;
-                    case ")":
+                    operandStack.Push(token);
+                    continue;
+                }
+
+                if (Token.IsRightParenthesis(token))
+                {
+                    while (!Token.IsLeftParenthesis(operandStack.Peek()))
                     {
-                        while (operandStack.Peek() != "(")
-                            outputQueue.Enqueue(operandStack.Pop());
-                        operandStack.Pop();
-                        continue;
+                        outputQueue.Enqueue(operandStack.Pop());
                     }
+
+                    operandStack.Pop();
+                    continue;
                 }
 
                 while (operandStack.Count > 0
                        && Token.Precedence(operandStack.Peek()) >= Token.Precedence(token)
-                       && Token.Associativity(token) == "Left")
+                       && Token.IsLeftAssociative(token))
                 {
                     outputQueue.Enqueue(operandStack.Pop());
                 }
@@ -44,9 +47,9 @@ namespace RpnCalculator.ShuntingYard.Implementations
                 operandStack.Push(token);
             }
 
-            while (operandStack.Any())
+            while (operandStack.Count > 0)
                 outputQueue.Enqueue(operandStack.Pop());
-            
+
             return outputQueue;
         }
 

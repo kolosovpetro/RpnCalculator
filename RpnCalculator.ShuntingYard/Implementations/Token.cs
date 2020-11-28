@@ -49,5 +49,10 @@ namespace RpnCalculator.ShuntingYard.Implementations
         {
             return token == ")";
         }
+
+        public static bool IsLeftAssociative(string token)
+        {
+            return Associativity(token) == "Left";
+        }
     }
 }

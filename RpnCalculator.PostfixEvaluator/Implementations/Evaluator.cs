@@ -6,15 +6,27 @@ namespace RpnCalculator.PostfixEvaluator.Implementations
 {
     public static class Evaluator
     {
-        public static double Evaluate(double value1, double value2, string @operator)
+        public static double Evaluate(double value1, double value2, string token)
         {
-            return @operator switch
+            return token switch
             {
                 "+" => value1 + value2,
                 "-" => value1 - value2,
                 "*" => value1 * value2,
                 "/" => value1 / value2,
                 "^" => Math.Pow(value1, value2),
+                _ => 0
+            };
+        }
+
+        public static double Evaluate(double value, string token)
+        {
+            return token switch
+            {
+                "sin" => Math.Sin(value),
+                "cos" => Math.Cos(value),
+                "tan" => Math.Tan(value),
+                "ctan" => 1 / Math.Tan(value),
                 _ => 0
             };
         }
