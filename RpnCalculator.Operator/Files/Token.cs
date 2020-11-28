@@ -12,6 +12,10 @@ namespace RpnCalculator.Operator.Files
             return token switch
             {
                 "^" => 4,
+                "sin" => 4,
+                "cos" => 4,
+                "tan" => 4,
+                "ctan" => 4,
                 "*" => 3,
                 "/" => 3,
                 "+" => 2,

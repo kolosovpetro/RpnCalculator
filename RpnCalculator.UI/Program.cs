@@ -25,6 +25,18 @@ namespace RpnCalculator.UI
             Console.WriteLine(postfixExpression); // 10 10 1 + 2 ^ *
             value = Evaluator.EvaluatePostfix(shuntingYardQueue);
             Console.WriteLine(value); // 1210
+            
+            shuntingYardQueue = ShuntingYardAlgorithm.ShuntingYard("1 + cos ( 1 / 2 ) + sin ( 1 / 2 )");
+            postfixExpression = ShuntingYardAlgorithm.InfixToPostfix("1 + cos ( 1 / 2 ) + sin ( 1 / 2 )");
+            Console.WriteLine(postfixExpression); // 1 1 2 / cos + 1 2 / sin +
+            value = Evaluator.EvaluatePostfix(shuntingYardQueue);
+            Console.WriteLine(value); // 2,3570081004945758
+            
+            shuntingYardQueue = ShuntingYardAlgorithm.ShuntingYard("2 + tan ( 1 / 2 ) + cos ( 0 )");
+            postfixExpression = ShuntingYardAlgorithm.InfixToPostfix("2 + tan ( 1 / 2 ) + cos ( 0 )");
+            Console.WriteLine(postfixExpression); // 2 1 2 / tan + 0 cos +
+            value = Evaluator.EvaluatePostfix(shuntingYardQueue);
+            Console.WriteLine(value); // 3,5463024898437903
         }
     }
 }

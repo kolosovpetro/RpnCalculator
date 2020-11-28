@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using RpnCalculator.Operator.Files;
 
 namespace RpnCalculator.PostfixEvaluator.Implementations
 {
@@ -19,7 +20,7 @@ namespace RpnCalculator.PostfixEvaluator.Implementations
             };
         }
 
-        public static double Evaluate(double value, string token)
+        private static double Evaluate(double value, string token)
         {
             return token switch
             {
@@ -33,25 +34,35 @@ namespace RpnCalculator.PostfixEvaluator.Implementations
 
         public static double EvaluatePostfix(Queue<string> postfix)
         {
-            var evaluatorStack = new Stack<double>();
+            var resultStack = new Stack<double>();
 
             while (postfix.Any())
             {
-                var current = postfix.Dequeue();
+                var currentToken = postfix.Dequeue();
 
-                if (double.TryParse(current, out var number))
+                if (Token.IsNumber(currentToken))
                 {
-                    evaluatorStack.Push(number);
+                    resultStack.Push(double.Parse(currentToken));
                     continue;
                 }
 
-                var val1 = evaluatorStack.Pop();
-                var val2 = evaluatorStack.Pop();
-                var output = Evaluate(val2, val1, current);
-                evaluatorStack.Push(output);
+                if (Token.IsOperator(currentToken))
+                {
+                    var val1 = resultStack.Pop();
+                    var val2 = resultStack.Pop();
+                    var output = Evaluate(val2, val1, currentToken);
+                    resultStack.Push(output);
+                }
+
+                if (Token.IsFunction(currentToken))
+                {
+                    var value = resultStack.Pop();
+                    var result = Evaluate(value, currentToken);
+                    resultStack.Push(result);
+                }
             }
 
-            return evaluatorStack.Pop();
+            return resultStack.Pop();
         }
     }
 }

@@ -26,7 +26,13 @@ namespace RpnCalculator.ShuntingYard.Tests.Tests
             postfix.Should().Be("3 2 - 1 + ");
             
             postfix = ShuntingYardAlgorithm.InfixToPostfix("2 * 1 + 2 + sin ( 0 )");
-            postfix.Should().Be("3 2 - 1 + ");
+            postfix.Should().Be("2 1 * 2 + 0 sin + ");
+            
+            postfix = ShuntingYardAlgorithm.InfixToPostfix("1 + cos ( 1 / 2 ) + sin ( 1 / 2 )");
+            postfix.Should().Be("1 1 2 / cos + 1 2 / sin + ");
+            
+            postfix = ShuntingYardAlgorithm.InfixToPostfix("2 + tan ( 1 / 2 ) + cos ( 0 )");
+            postfix.Should().Be("2 1 2 / tan + 0 cos + ");
         }
     }
 }
