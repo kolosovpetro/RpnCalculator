@@ -2,12 +2,11 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
-        <RootNamespace>RpnCalculator.ShuntingYard</RootNamespace>
+        <RootNamespace>RpnCalculator.ShuntingYardAlgorithm</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\RpnCalculator.Operator\RpnCalculator.Operator.csproj" />
-      <ProjectReference Include="..\RpnCalculator.PostfixEvaluator\RpnCalculator.PostfixEvaluator.csproj" />
     </ItemGroup>
 
 </Project>

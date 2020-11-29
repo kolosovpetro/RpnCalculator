@@ -1,15 +1,13 @@
 ﻿using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Text;
 using RpnCalculator.Operator.Files;
-using RpnCalculator.PostfixEvaluator.Implementations;
 
-namespace RpnCalculator.ShuntingYard.Implementations
+namespace RpnCalculator.ShuntingYardAlgorithm.Implementations
 {
-    public static class ShuntingYardAlgorithm
+    public static class ShuntingYard
     {
-        public static Queue<string> ShuntingYard(string input)
+        public static Queue<string> PostfixQueue(string input)
         {
             var outputQueue = new Queue<string>();
             var operandStack = new Stack<string>();
@@ -25,7 +23,7 @@ namespace RpnCalculator.ShuntingYard.Implementations
 
                 if (Token.IsConstant(token))
                 {
-                    outputQueue.Enqueue(Evaluator.Evaluate(token).ToString(CultureInfo.CurrentCulture));
+                    outputQueue.Enqueue(Token.ReplaceConstant(token));
                     continue;
                 }
 
@@ -61,9 +59,9 @@ namespace RpnCalculator.ShuntingYard.Implementations
             return outputQueue;
         }
 
-        public static string InfixToPostfix(string infix)
+        public static string InfixToPostfixString(string infix)
         {
-            var queue = ShuntingYard(infix);
+            var queue = PostfixQueue(infix);
             var builder = new StringBuilder();
 
             while (queue.Any())

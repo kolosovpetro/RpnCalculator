@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Globalization;
+using System.Linq;
 
 namespace RpnCalculator.Operator.Files
 {
@@ -25,6 +27,45 @@ namespace RpnCalculator.Operator.Files
                 "/" => 3,
                 "+" => 2,
                 "-" => 2,
+                _ => 0
+            };
+        }
+        
+        public static string ReplaceConstant(string token)
+        {
+            return token switch
+            {
+                "e" => Math.E.ToString(CultureInfo.CurrentCulture),
+                "pi" => Math.PI.ToString(CultureInfo.CurrentCulture),
+                _ => "0"
+            };
+        }
+        
+        public static double Evaluate(double value1, double value2, string token)
+        {
+            return token switch
+            {
+                "+" => value1 + value2,
+                "-" => value1 - value2,
+                "*" => value1 * value2,
+                "/" => value1 / value2,
+                "^" => Math.Pow(value1, value2),
+                _ => 0
+            };
+        }
+
+        public static double Evaluate(double value, string token)
+        {
+            return token switch
+            {
+                "sin" => Math.Sin(value),
+                "cos" => Math.Cos(value),
+                "tan" => Math.Tan(value),
+                "ctan" => 1 / Math.Tan(value),
+                "sqrt" => Math.Sqrt(value),
+                "exp" => Math.Exp(value),
+                "ln" => Math.Log(value),
+                "log" => Math.Log10(value),
                 _ => 0
             };
         }

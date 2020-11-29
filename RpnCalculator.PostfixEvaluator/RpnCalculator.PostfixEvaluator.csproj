@@ -6,6 +6,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\RpnCalculator.Operator\RpnCalculator.Operator.csproj" />
+      <ProjectReference Include="..\RpnCalculator.ShuntingYardAlgorithm\RpnCalculator.ShuntingYardAlgorithm.csproj" />
     </ItemGroup>
 
 </Project>

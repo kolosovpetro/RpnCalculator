@@ -7,7 +7,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\RpnCalculator.PostfixEvaluator\RpnCalculator.PostfixEvaluator.csproj" />
-      <ProjectReference Include="..\RpnCalculator.ShuntingYard\RpnCalculator.ShuntingYard.csproj" />
+      <ProjectReference Include="..\RpnCalculator.ShuntingYardAlgorithm\RpnCalculator.ShuntingYardAlgorithm.csproj" />
     </ItemGroup>
 
 </Project>

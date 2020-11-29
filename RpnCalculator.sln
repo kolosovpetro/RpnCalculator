@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RpnCalculator.ShuntingYard", "RpnCalculator.ShuntingYard\RpnCalculator.ShuntingYard.csproj", "{4431A4FB-B9A9-4984-BDE5-C5179D4658FF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RpnCalculator.ShuntingYardAlgorithm", "RpnCalculator.ShuntingYardAlgorithm\RpnCalculator.ShuntingYardAlgorithm.csproj", "{4431A4FB-B9A9-4984-BDE5-C5179D4658FF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RpnCalculator.PostfixEvaluator", "RpnCalculator.PostfixEvaluator\RpnCalculator.PostfixEvaluator.csproj", "{368312BE-101D-41D0-8F5D-550EC2495510}"
 EndProject
