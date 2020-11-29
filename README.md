@@ -3,10 +3,11 @@
 Reverse Polish Notation Calculator. Evaluates infix expressions.
 
 - Supported operators: +, -, *, /, ^, sin, cos, tan, ln, log, sqrt, ctan, exp
-
 - Supported constants: e, pi
 
-Separate each token with whitespace
+Separate each token with whitespace.
+
+## Code snippet
 
 ```cs
 var infixString = "3 + 4 * 2 / ( 1 - 5 ) ^ 2 ^ 3";
