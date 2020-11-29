@@ -7,7 +7,7 @@ namespace RpnCalculator.ShuntingYardAlgorithm.Implementations
 {
     public static class ShuntingYard
     {
-        public static Queue<string> PostfixQueue(string input)
+        public static Queue<string> GetPostfixQueue(string input)
         {
             var outputQueue = new Queue<string>();
             var operandStack = new Stack<string>();
@@ -59,9 +59,9 @@ namespace RpnCalculator.ShuntingYardAlgorithm.Implementations
             return outputQueue;
         }
 
-        public static string InfixToPostfixString(string infix)
+        public static string InfixToPostfixString(string infixString)
         {
-            var queue = PostfixQueue(infix);
+            var queue = GetPostfixQueue(infixString);
             var builder = new StringBuilder();
 
             while (queue.Any())

@@ -2,11 +2,11 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RpnCalculator.ShuntingYardAlgorithm", "RpnCalculator.ShuntingYardAlgorithm\RpnCalculator.ShuntingYardAlgorithm.csproj", "{4431A4FB-B9A9-4984-BDE5-C5179D4658FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RpnCalculator.PostfixEvaluator", "RpnCalculator.PostfixEvaluator\RpnCalculator.PostfixEvaluator.csproj", "{368312BE-101D-41D0-8F5D-550EC2495510}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RpnCalculator.Evaluator", "RpnCalculator.Evaluator\RpnCalculator.Evaluator.csproj", "{368312BE-101D-41D0-8F5D-550EC2495510}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RpnCalculator.PostfixEvaluator.Tests", "RpnCalculator.PostfixEvaluator.Tests\RpnCalculator.PostfixEvaluator.Tests.csproj", "{7A293123-5128-46CB-841E-464BAA8A6EEC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RpnCalculator.Evaluator.Tests", "RpnCalculator.Evaluator.Tests\RpnCalculator.Evaluator.Tests.csproj", "{7A293123-5128-46CB-841E-464BAA8A6EEC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RpnCalculator.ShuntingYard.Tests", "RpnCalculator.ShuntingYard.Tests\RpnCalculator.ShuntingYard.Tests.csproj", "{0C3829CE-DDDA-4CFA-91B5-F78B0A169E57}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RpnCalculator.ShuntingYardAlgorithm.Tests", "RpnCalculator.ShuntingYardAlgorithm.Tests\RpnCalculator.ShuntingYardAlgorithm.Tests.csproj", "{0C3829CE-DDDA-4CFA-91B5-F78B0A169E57}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RpnCalculator.UI", "RpnCalculator.UI\RpnCalculator.UI.csproj", "{24DD99B5-CBD3-4215-8C20-C91748D86ADE}"
 EndProject

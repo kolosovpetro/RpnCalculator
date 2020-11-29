@@ -3,11 +3,11 @@ using System.Linq;
 using RpnCalculator.Operator.Files;
 using RpnCalculator.ShuntingYardAlgorithm.Implementations;
 
-namespace RpnCalculator.PostfixEvaluator.Implementations
+namespace RpnCalculator.Evaluator.Implementations
 {
-    public static class Evaluator
+    public static class InfixEvaluator
     {
-        public static double EvaluatePostfix(Queue<string> postfix)
+        public static double EvaluateInfix(Queue<string> postfix)
         {
             var resultStack = new Stack<double>();
 
@@ -41,14 +41,14 @@ namespace RpnCalculator.PostfixEvaluator.Implementations
             return resultStack.Pop();
         }
         
-        public static double EvaluatePostfix(string infix)
+        public static double EvaluateInfix(string infixString)
         {
             var resultStack = new Stack<double>();
-            var postfix = ShuntingYard.PostfixQueue(infix);
+            var postfixQueue = ShuntingYard.GetPostfixQueue(infixString);
 
-            while (postfix.Any())
+            while (postfixQueue.Any())
             {
-                var currentToken = postfix.Dequeue();
+                var currentToken = postfixQueue.Dequeue();
 
                 if (Token.IsNumber(currentToken))
                 {
